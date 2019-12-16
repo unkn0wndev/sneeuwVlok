@@ -5,7 +5,7 @@ class Wens {
       this._hori  = horizontaal;
       this._vert  = verticaal;
       this._snelh = snelheid;
-
+      this.wens;
    }
    // method maken: creëer een element en plaats deze in de body
    maken() {
@@ -14,8 +14,21 @@ class Wens {
       wens.className  = 'wens';
       wens.style.top  = this._vert + 'px';
       wens.style.left = this._hori + 'px';
-
       document.body.appendChild(wens);
+      this.rijden();
+   }
+
+   verplaatsen() {
+      this._vert += this._snelh;
+      // bijwerken in de DOM
+      this.wens.style.top = this._hori + 'px';
+   }
+   // rijden is een method om continue te verplaatsen
+   rijden() {
+      let bewegen = requestAnimationFrame( () => {
+         this.verplaatsen();
+         this.rijden();  // hierdoor wordt de functie continue herhaald
+      });
    }
 }
 
