@@ -1,9 +1,14 @@
 body{
+  height: 100vh;
+
   background-color: red;
 }
 
 .wens{
 
+}
+h1{
+  color: white;
 }
 
 .ster{
