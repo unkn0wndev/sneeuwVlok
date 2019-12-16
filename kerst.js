@@ -5,23 +5,24 @@ class Wens {
       this._hori  = horizontaal;
       this._vert  = verticaal;
       this._snelh = snelheid;
-      this.wens;
+      this._wens;
    }
-   // method maken: creëer een element en plaats deze in de body
+
+
    maken() {
-      let wens = document.createElement('div');
-      wens.innerHTML = codeSVGvlok;
-      wens.className  = 'wens';
-      wens.style.top  = this._vert + 'px';
-      wens.style.left = this._hori + 'px';
-      document.body.appendChild(wens);
+      this._wens = document.createElement('div');
+      this._wens.innerHTML = codeSVGvlok;
+      this._wens.className  = 'wens';
+      this._wens.style.top  = this._vert + 'px';
+      this._wens.style.left = this._hori + 'px';
+      document.body.appendChild(this._wens);
       this.rijden();
    }
 
    verplaatsen() {
-      this._vert += this._snelh;
+      this._hori += this._snelh;
       // bijwerken in de DOM
-      this.wens.style.top = this._hori + 'px';
+      this._wens.style.left = this._hori + 'px';
    }
    // rijden is een method om continue te verplaatsen
    rijden() {
@@ -33,9 +34,9 @@ class Wens {
 }
 
 // twee instanties van de class Auto maken
-let vlokje1 = new Wens(Math.random()*200, Math.random()*500, 4);
+let vlokje1 = new Wens(Math.random()*200, Math.random()*500);
 vlokje1.maken();
-let vlokje2 = new Wens(Math.random()*200, Math.random()*500, 4);
+let vlokje2 = new Wens(Math.random()*200, Math.random()*500);
 vlokje2.maken();
-let vlokje3 = new Wens(Math.random()*200, Math.random()*500, 4);
+let vlokje3 = new Wens(Math.random()*200, Math.random()*500);
 vlokje3.maken();
